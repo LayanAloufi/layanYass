@@ -414,9 +414,13 @@ The project demonstrates how multiple services can communicate through Docker ne
  ## Docker Networks 
  
 -Docker networks allow containers to communicate.
+
 -The frontend communicates with the backend.
+
 -The backend communicates with PostgreSQL.
+
 -Containers use container names instead of IP addresses.
+
 -Networks isolate services and improve security.
 
 
