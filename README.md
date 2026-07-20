@@ -314,26 +314,74 @@ Answer the following questions inside the `README.md`.
 ### Docker Questions
 
 1. In a multi-stage Dockerfile, why does the final image only contain the final/runtime stage?
+   
+-A multi-stage Dockerfile separates the build environment from the runtime environment. Only the files copied into the final stage are included in the final image. This keeps the image smaller .
+
+
 2. Why is it better to copy dependency files first, install dependencies, and then copy the full source code?
+   
+-If only the application source code changes but the dependency files remain the same, Docker reuses the cached dependency layer instead of reinstalling all dependencies. This significantly speeds up image builds.
+
+
 3. What is the difference between a Docker volume and a bind mount?
+
+-A Docker volume is managed by Docker and is mainly used to persist application data, such as a database. A bind mount links a specific directory from the host machine to the container, allowing both to share the same files directly.
+
 
 ### Manual Docker vs Docker Compose Questions
 
 1. What is the benefit of running the containers manually before using Docker Compose?
+
+Running containers manually helps understand how Docker works by learning how to create networks, volumes, environment variables, and containers individually. Docker Compose then automates these steps.
+
+
 2. Which `docker run` flags were replaced by the `docker-compose.yml` file?
+
+--name
+
+-p (port mapping)
+
+-e (environment variables)
+
+--network
+
+-v (volumes)
+
+These settings are defined once in the docker-compose.yml file.
+
+
 3. Why is Docker Compose easier to manage when the project has frontend, backend, and database services?
+
+-Docker Compose allows all services to be defined in a single file and started with one command. It automatically creates networks, attaches volumes, applies environment variables, and manages communication between services.
 
 ### Docker Compose / Networking Questions
 
 1. Why should the database not expose its port to the host machine in this task?
+
+-The database is only used by the backend service. Keeping it internal improves security by preventing direct access from the host machine or external users.
+
 2. How can the backend connect to the database if the database port is not exposed to the host?
+
+-Both containers are connected to the same Docker network. The backend connects to the database using the service name 
+
+
 3. Why do we use separate Docker networks for frontend-backend and backend-database communication?
+
+-Using separate networks isolates services and limits communication only to containers that need it.
 
 ### GitHub Actions Questions
 
 1. What is the difference between running the workflow on `pull_request` and running it on `push` to `main`?
+
+-On a pull request, the workflow only builds the Docker images to verify that the project builds successfully. On a push to the main branch, the workflow builds the images and then pushes them to Docker Hub.
+
 2. Why should Docker Hub credentials be stored as GitHub Actions secrets?
+
+-Secrets keep sensitive information secure and prevent usernames and access tokens from being exposed in the repository or workflow files.
+
 3. Why should the workflow build images on pull requests but only push images when code is merged to `main`?
+
+-Building images during pull requests verifies that the changes do not break the project before merging. Pushing images only after merging to main ensures that only tested and approved code is published to Docker Hub.
 
 ---
 
