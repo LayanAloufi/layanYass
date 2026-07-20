@@ -370,3 +370,39 @@ The task is complete when:
 Deadline: Tuesday, 21 July 2026, 4:00 PM.
 
 After submission, we will review the implementation together. Be ready to explain your Dockerfiles, Docker Compose networks, volumes, and GitHub Actions workflow.
+
+
+
+## PROJECT OVERVIEW 
+Project Overview
+This project is a containerized Todo application built to demonstrate Docker, Docker Compose, and CI/CD concepts. The application consists of three services:
+Frontend: A React (Vite) application served with Nginx.
+Backend: A Flask REST API that handles todo operations.
+Database: A PostgreSQL database used to store todo items persistently.
+The project demonstrates how multiple services can communicate through Docker networks, how persistent data is managed using Docker volumes, and how the entire application can be orchestrated with Docker Compose. It also includes a GitHub Actions workflow that automatically builds the Docker images on pull requests and publishes them to Docker Hub when changes are merged into the main branch.
+
+## Build and Run the Containers Manually
+
+# Build the Backend Image:
+ docker build -t todo-backend ./backend
+# Run the Backend Container:
+docker run -d --name backend -p 5000:5000 todo-backend
+
+# Build the Frontend Image:
+ docker build -t todo-frontend ./frontend
+# Run the Frontend Container;
+docker run -d --name frontend -p 3000:80 todo-frontend
+
+
+
+
+
+
+
+
+
+
+
+
+
+
