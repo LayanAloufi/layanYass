@@ -508,11 +508,9 @@ This provides an automated CI pipeline that validates changes before merging and
 -Backend:  https://hub.docker.com/repository/docker/layanaloufi/todo-backend
 
 
-
-
 # Project Screenshots
 
-The following screenshots demonstrate that the application and CI pipeline are working correctly.
+The following screenshots demonstrate that the application, Docker setup, and CI pipeline are working successfully.
 
 ---
 
@@ -524,7 +522,7 @@ The application is built and started using Docker Compose.
 docker compose up -d --build
 ```
 
-![Docker Compose](<screenshots/Screenshot 1448-02-07 at 12.01.21 AM.png>)
+![Docker Compose](screenshots/docker-compose-up.png)
 
 ---
 
@@ -536,7 +534,7 @@ The following screenshot shows that the frontend, backend, and PostgreSQL contai
 docker ps
 ```
 
-![Running Containers](<screenshots/Screenshot 1448-02-07 at 12.02.06 AM.png>)
+![Running Containers](screenshots/docker-ps.png)
 
 ---
 
@@ -544,26 +542,15 @@ docker ps
 
 The frontend application running successfully in the browser.
 
-![Frontend](<screenshots/Screenshot 1448-02-07 at 12.03.21 AM.png>)
+![Frontend](screenshots/frontend.png)
 
 ---
 
 ## GitHub Actions Workflow
 
-The GitHub Actions workflow successfully builds the Docker images and pushes them to Docker Hub after code is merged into the `main` branch.
+The GitHub Actions workflow builds the Docker images on every pull request and push. When changes are pushed to the `main` branch, the workflow also pushes the frontend and backend Docker images to Docker Hub.
 
-![GitHub Actions](<screenshots/Screenshot 1448-02-07 at 12.04.47 AM.png>)
-
-
-
-
-
-
-
-
-
-
-
+![GitHub Actions](screenshots/github-actions.png)
 
 
 
