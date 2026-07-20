@@ -383,21 +383,25 @@ The project demonstrates how multiple services can communicate through Docker ne
 
 ## Build and Run the Containers Manually
 
- **Build the Backend Image** 
+ **Build the Backend Image:** 
  
- docker build -t todo-backend ./backend
+ -docker build -t todo-backend ./backend
  
-**Run the Backend Container**
+**Run the Backend Container:**
 
-docker run -d --name backend -p 5000:5000 todo-backend
+-docker run -d --name backend -p 5000:5000 todo-backend
 
-**Build the Frontend Image**
+**Build the Frontend Image:**
 
- docker build -t todo-frontend ./frontend
+ -docker build -t todo-frontend ./frontend
  
-**Run the Frontend Container**
+**Run the Frontend Container:**
 
-docker run -d --name frontend -p 3000:80 todo-frontend
+-docker run -d --name frontend -p 3000:80 todo-frontend
+
+## Run the Project with Docker Compose
+
+-docker compose up -d --build
 
 
 
