@@ -424,6 +424,32 @@ The project demonstrates how multiple services can communicate through Docker ne
 -Networks isolate services and improve security.
 
 
+## Database Volume
+
+The project uses a named Docker volume called postgres-data.
+The volume stores PostgreSQL data outside the database container.
+This ensures that the database contents remain available even if the PostgreSQL container is stopped or removed. When a new PostgreSQL container is created using the same volume, it can continue using the existing data.
+
+
+## Manual Docker vs Docker Compose
+
+-Running the application manually requires executing multiple Docker commands to build images, create networks, create volumes, and start each container individually. This approach helps understand how Docker works behind the scenes and how containers communicate.
+
+-Docker Compose simplifies this process by defining all services, networks, volumes, ports, and environment variables in a single docker-compose.yml file. Instead of running many commands.
+
+
+## GitHub Actions Workflow
+
+The workflow runs automatically when code is pushed or when a pull request is opened.
+On a pull request, the workflow builds the frontend and backend Docker images to verify that the project builds successfully. The images are not pushed to Docker Hub.
+
+On a push to the main branch, the workflow builds both Docker images, logs in to Docker Hub using GitHub Secrets (DOCKERHUB_USERNAME and DOCKERHUB_TOKEN), and pushes the images with the latest tag and the current commit SHA tag.
+This provides an automated CI pipeline that validates changes before merging and publishes updated Docker images only after code is merged into the main branch.
+
+
+
+
+
 
 
 
