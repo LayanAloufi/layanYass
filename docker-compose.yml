@@ -1,0 +1,49 @@
+
+# Containers are called services
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    networks:
+      - frontend-net
+   
+
+
+
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+     DB_HOST: ${DB_HOST}
+     DB_PORT: ${DB_PORT}
+     DB_NAME: ${DB_NAME}
+     DB_USER: ${DB_USER}
+     DB_PASSWORD: ${DB_PASSWORD}
+      # The backend needs to communicate with the frontend and database 
+    networks:
+      - db-net
+      - frontend-net
+
+
+           
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+       - postgres-data:/var/lib/postgresql/data
+    networks:
+      - db-net
+volumes:
+  postgres-data:
+
+# adding two networks to separate frontend and backend communication
+networks:
+  frontend-net:
+  db-net:
