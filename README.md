@@ -353,7 +353,7 @@ Answer the following questions inside the `README.md`.
 
 3. Why is Docker Compose easier to manage when the project has frontend, backend, and database services?
 
-  -Docker Compose allows all services to be defined in a single file and started with one command. It automatically creates networks, attaches volumes, applies environment variables, and manages communication between services.
+  **-Docker Compose allows all services to be defined in a single file and started with one command. It automatically creates networks, attaches volumes, applies environment variables, and manages communication between services.**
 
 
 
@@ -361,16 +361,16 @@ Answer the following questions inside the `README.md`.
 
 1. Why should the database not expose its port to the host machine in this task?
 
-  -The database is only used by the backend service. Keeping it internal improves security by preventing direct access from the host machine or external users.
+  **-The database is only used by the backend service. Keeping it internal improves security by preventing direct access from the host machine or external users.**
 
 2. How can the backend connect to the database if the database port is not exposed to the host?
 
-  -Both containers are connected to the same Docker network. The backend connects to the database using the service name 
+  **-Both containers are connected to the same Docker network. The backend connects to the database using the service name.** 
 
 
 3. Why do we use separate Docker networks for frontend-backend and backend-database communication?
 
-  -Using separate networks isolates services and limits communication only to containers that need it.
+  **-Using separate networks isolates services and limits communication only to containers that need it.**
 
 
 
@@ -378,15 +378,15 @@ Answer the following questions inside the `README.md`.
 
 1. What is the difference between running the workflow on `pull_request` and running it on `push` to `main`?
 
-  -On a pull request, the workflow only builds the Docker images to verify that the project builds successfully. On a push to the main branch, the workflow builds the images and then pushes them to Docker Hub.
+  **-On a pull request, the workflow only builds the Docker images to verify that the project builds successfully. On a push to the main branch, the workflow builds the images and then pushes them to Docker Hub.**
 
 2. Why should Docker Hub credentials be stored as GitHub Actions secrets?
 
-  -Secrets keep sensitive information secure and prevent usernames and access tokens from being exposed in the repository or workflow files.
+  **-Secrets keep sensitive information secure and prevent usernames and access tokens from being exposed in the repository or workflow files.**
 
 3. Why should the workflow build images on pull requests but only push images when code is merged to `main`?
 
-  -Building images during pull requests verifies that the changes do not break the project before merging. Pushing images only after merging to main ensures that only tested and approved code is published to Docker Hub.
+  **-Building images during pull requests verifies that the changes do not break the project before merging. Pushing images only after merging to main ensures that only tested and approved code is published to Docker Hub.**
 
 ---
 
