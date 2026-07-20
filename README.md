@@ -315,17 +315,17 @@ Answer the following questions inside the `README.md`.
 
 1. In a multi-stage Dockerfile, why does the final image only contain the final/runtime stage?
    
-  -A multi-stage Dockerfile separates the build environment from the runtime environment. Only the files copied into the final   stage are included in the final image. This keeps the image smaller .
+ **-A multi-stage Dockerfile separates the build environment from the runtime environment. Only the files copied into the final   stage are included in the final image. This keeps the image smaller .**
 
 
 2. Why is it better to copy dependency files first, install dependencies, and then copy the full source code?
    
-  -If only the application source code changes but the dependency files remain the same, Docker reuses the cached dependency layer instead of reinstalling all dependencies. This significantly speeds up image builds.
+ **-If only the application source code changes but the dependency files remain the same, Docker reuses the cached dependency layer instead of reinstalling all dependencies. This significantly speeds up image builds.**
 
 
 3. What is the difference between a Docker volume and a bind mount?
 
-  -A Docker volume is managed by Docker and is mainly used to persist application data, such as a database. A bind mount links a specific directory from the host machine to the container, allowing both to share the same files directly.
+  **-A Docker volume is managed by Docker and is mainly used to persist application data, such as a database. A bind mount links a specific directory from the host machine to the container, allowing both to share the same files directly.**
 
 
 
@@ -333,22 +333,22 @@ Answer the following questions inside the `README.md`.
 
 1. What is the benefit of running the containers manually before using Docker Compose?
 
-  -Running containers manually helps understand how Docker works by learning how to create networks, volumes, environment variables, and containers individually. Docker Compose then automates these steps.
+  **-Running containers manually helps understand how Docker works by learning how to create networks, volumes, environment variables, and containers individually. Docker Compose then automates these steps.**
 
 
 2. Which `docker run` flags were replaced by the `docker-compose.yml` file?
 
-  --name
+ **--name**
 
-  -p (port mapping)
+  **-p (port mapping)**
 
-  -e (environment variables)
+  **-e (environment variables)**
 
-  --network
+  **--network**
 
-  -v (volumes)
+  **-v (volumes)**
 
-  These settings are defined once in the docker-compose.yml file.
+  **These settings are defined once in the docker-compose.yml file.**
 
 
 3. Why is Docker Compose easier to manage when the project has frontend, backend, and database services?
