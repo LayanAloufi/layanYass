@@ -510,6 +510,53 @@ This provides an automated CI pipeline that validates changes before merging and
 
 
 
+# Project Screenshots
+
+The following screenshots demonstrate that the application and CI pipeline are working correctly.
+
+---
+
+## Docker Compose
+
+The application is built and started using Docker Compose.
+
+```bash
+docker compose up -d --build
+```
+
+![Docker Compose](<screenshots/Screenshot 1448-02-07 at 12.01.21 AM.png>)
+
+---
+
+## Running Containers
+
+The following screenshot shows that the frontend, backend, and PostgreSQL containers are running successfully.
+
+```bash
+docker ps
+```
+
+![Running Containers](<screenshots/Screenshot 1448-02-07 at 12.02.06 AM.png>)
+
+---
+
+## Frontend
+
+The frontend application running successfully in the browser.
+
+![Frontend](<screenshots/Screenshot 1448-02-07 at 12.03.21 AM.png>)
+
+---
+
+## GitHub Actions Workflow
+
+The GitHub Actions workflow successfully builds the Docker images and pushes them to Docker Hub after code is merged into the `main` branch.
+
+![GitHub Actions](<screenshots/Screenshot 1448-02-07 at 12.04.47 AM.png>)
+
+
+
+
 
 
 
