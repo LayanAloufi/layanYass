@@ -1,6 +1,7 @@
 
 # Containers are called services
 services:
+#Docker builds an image using the Dockerfile inside the frontend folder.
   frontend:
     build: ./frontend
     ports:
@@ -16,6 +17,7 @@ services:
     build: ./backend
     ports:
       - "5000:5000"
+      # The backend needs to communicate with the database, so we set environment variables for database connection
     environment:
      DB_HOST: ${DB_HOST}
      DB_PORT: ${DB_PORT}
@@ -31,11 +33,14 @@ services:
            
 
   db:
+  #Docker downloads the official PostgreSQL image from Docker Hub
     image: postgres:15-alpine
     environment:
+    #PostgreSQL uses them to create the database and its user
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
+      #Store all PostgreSQL data in a named volume called postgres-data
     volumes:
        - postgres-data:/var/lib/postgresql/data
     networks:
